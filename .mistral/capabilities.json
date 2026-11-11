@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 4,
+  "requested": [
+    "mistralai-capabilities/deployment/apps"
+  ],
+  "installed": [
+    {
+      "capability": "mistralai-capabilities/base/core",
+      "version": "0.1.71"
+    },
+    {
+      "capability": "mistralai-capabilities/deployment/apps",
+      "version": "0.1.71"
+    }
+  ]
+}

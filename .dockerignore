@@ -1,0 +1,15 @@
+.git
+node_modules
+.mistral/cache
+assets
+screenshots
+src
+apps/web/site
+**/__pycache__
+*.log
+.env
+.env.*
+!.env.example
+build.py
+probe.py
+shoot.py

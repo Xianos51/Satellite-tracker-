@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MISTRAL // Orbital Tracking Console</title>
+<style>
+/* @@INLINE:css/console.css@@ */
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand"><span class="brand-mark">▲</span><span class="brand-name">MISTRAL</span><span class="brand-sub">// ORBITAL TRACKING CONSOLE</span></div>
+    <div class="top-right">
+      <span id="badge" class="badge badge-warn">CONNECTING…</span>
+      <span id="clock" class="clock">--:--:-- UTC</span>
+      <span id="rate" class="rate">60×</span>
+    </div>
+  </header>
+  <aside id="left">
+    <div class="panel-title">CATALOG</div>
+    <input id="search" type="text" placeholder="search name / NORAD id  ( / )" autocomplete="off" spellcheck="false"/>
+    <div id="groups"></div>
+    <div class="panel-title">DATA</div>
+    <button id="refresh" class="btn">⟳ REFRESH TLE&nbsp;&nbsp;(R)</button>
+    <label class="btn btn-file">⇪ LOAD .TLE FILE<input id="file" type="file" accept=".tle,.txt,text/plain" hidden/></label>
+    <div class="panel-title">TIME</div>
+    <button id="pause" class="btn">⏸ PAUSE&nbsp;&nbsp;(SPACE)</button>
+    <div id="rates" class="rates"></div>
+    <div class="panel-title">LEGEND</div>
+    <div id="legend"></div>
+  </aside>
+  <main id="viewport">
+    <canvas id="view"></canvas>
+    <div id="tooltip" class="tooltip" hidden></div>
+    <div id="sysbanner" class="sysbanner" hidden></div>
+    <div id="hint">drag&nbsp;orbit&nbsp;·&nbsp;wheel&nbsp;zoom&nbsp;·&nbsp;click&nbsp;object&nbsp;=&nbsp;lock&nbsp;·&nbsp;hover&nbsp;=&nbsp;name</div>
+  </main>
+  <aside id="right">
+    <div class="panel-title">TELEMETRY</div>
+    <div id="telemetry"><div class="dim">no target locked — click an object or use search</div></div>
+  </aside>
+  <footer id="statusbar">
+    <span><b>F</b> focus</span><span><b>ESC</b> reset</span><span><b>SPACE</b> pause</span><span><b>+/-</b> speed</span><span><b>R</b> refresh</span><span><b>/</b> search</span>
+    <span id="count" class="count"></span>
+  </footer>
+</div>
+<script>
+/* @@INLINE:lib/three.min.js@@ */
+</script>
+<script>
+/* @@INLINE:lib/OrbitControls.js@@ */
+</script>
+<script>
+/* @@INLINE:lib/satellite.min.js@@ */
+</script>
+<script>
+/* @@INLINE:js/textures.js@@ */
+</script>
+<script>
+/* @@INLINE:js/sample-data.js@@ */
+</script>
+<script>
+/* @@INLINE:js/tle.js@@ */
+</script>
+<script>
+/* @@INLINE:js/scene.js@@ */
+</script>
+<script>
+/* @@INLINE:js/scene2d.js@@ */
+</script>
+<script>
+/* @@INLINE:js/app.js@@ */
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1.7-labs
+# Static web module for the Mistral App: serves the built single-file index.html.
+# Build:  docker build -f deploy/docker/Dockerfile.web -t satellite-tracker-web .
+FROM node:24-slim AS runtime
+WORKDIR /app
+ENV NODE_ENV=production \
+    HOST=0.0.0.0 \
+    PORT=3001
+RUN groupadd -g 1000 app 2>/dev/null || true && \
+    useradd -u 1000 -g 1000 -m -s /usr/sbin/nologin app 2>/dev/null || true
+COPY --chown=1000:1000 apps/web/server.js apps/web/package.json ./
+COPY --chown=1000:1000 index.html ./site/index.html
+EXPOSE 3001
+USER 1000:1000
+HEALTHCHECK --interval=10s --timeout=5s --retries=5 --start-period=10s \
+    CMD node -e "fetch('http://127.0.0.1:3001/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+CMD ["node", "server.js"]
